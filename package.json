@@ -1,6 +1,6 @@
 {
   "name": "@dream11mobile/react-native-navigation",
-  "version": "2.20.1",
+  "version": "2.20.2",
   "description": "React Native Navigation - truly native navigation for iOS and Android. Minor changes to support react-native-youtube on present modals",
   "license": "MIT",
   "nativePackage": true,
@@ -8,13 +8,13 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bugs": {
-    "url": "https://github.com/@dream11mobile/react-native-navigation/issues"
+    "url": "https://github.com/pankaj-pp/react-native-navigation/issues"
   },
-  "homepage": "https://github.com/@dream11mobile/react-native-navigation",
+  "homepage": "https://github.com/pankaj-pp/react-native-navigation",
   "readme": "https://github.com/wix/react-native-navigation#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/@dream11mobile/react-native-navigation.git"
+    "url": "https://github.com/pankaj-pp/react-native-navigation.git"
   },
   "main": "lib/dist/index.js",
   "typings": "lib/dist/index.d.ts",
