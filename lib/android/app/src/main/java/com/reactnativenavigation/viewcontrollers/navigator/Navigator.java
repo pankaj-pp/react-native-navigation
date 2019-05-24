@@ -61,12 +61,12 @@ public class Navigator extends ParentController {
     public void setContentLayout(ViewGroup contentLayout) {
         this.contentLayout = contentLayout;
         contentLayout.addView(rootLayout);
-        contentLayout.addView(modalsLayout);
         contentLayout.addView(overlaysLayout);
+        contentLayout.addView(modalsLayout);
     }
 
     public Navigator(final Activity activity, ChildControllersRegistry childRegistry, ModalStack modalStack, OverlayManager overlayManager, RootPresenter rootPresenter) {
-        super(activity, childRegistry,"navigator" + CompatUtils.generateViewId(), new Presenter(activity, new Options()), new Options());
+        super(activity, childRegistry, "navigator" + CompatUtils.generateViewId(), new Presenter(activity, new Options()), new Options());
         this.modalStack = modalStack;
         this.overlayManager = overlayManager;
         this.rootPresenter = rootPresenter;
@@ -194,10 +194,12 @@ public class Navigator extends ParentController {
     }
 
     public void showOverlay(ViewController overlay, CommandListener listener) {
+        overlaysLayout.bringToFront();
         overlayManager.show(overlaysLayout, overlay, listener);
     }
 
     public void dismissOverlay(final String componentId, CommandListener listener) {
+        modalsLayout.bringToFront();
         overlayManager.dismiss(componentId, listener);
     }
 
@@ -220,7 +222,7 @@ public class Navigator extends ParentController {
             if (from instanceof StackController) {
                 task.run((StackController) from);
             } else {
-                from.performOnParentStack(stack -> task.run((StackController) stack) );
+                from.performOnParentStack(stack -> task.run((StackController) stack));
             }
         } else {
             listener.onError("Failed to execute stack command. Stack " + fromId + " not found.");
